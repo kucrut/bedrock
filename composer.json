@@ -68,7 +68,7 @@
       "app/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
       "app/themes/{$name}/": ["type:wordpress-theme"]
     },
-    "webroot-dir": "wp",
+    "webroot-dir": "root/wp",
     "webroot-package": "wordpress"
   }
 }
