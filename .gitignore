@@ -25,7 +25,3 @@ vendor/*
 
 # Node Package Manager
 node_modules
-
-# Vagrant
-bin
-.vagrant
