@@ -62,8 +62,6 @@ class Installer {
         }
       );
       self::$env_vars = $env;
-
-      $generate_salts = $composer->getConfig()->get('generate-salts');
     }
     else {
       $io->write('<info>Generating .env file</info>');
@@ -78,17 +76,13 @@ class Installer {
 
         self::$env_vars[$key] = $value;
       }
-
-      $generate_salts = $io->askConfirmation('<info>Generate salts?</info> [<comment>Y,n</comment>]? ', true);
     }
 
     self::$env_vars['WP_HOME']    = sprintf('http://%s', self::$env_vars['DOMAIN_CURRENT_SITE']);
     self::$env_vars['WP_SITEURL'] = sprintf('%s/wp', self::$env_vars['WP_HOME']);
 
-    if ($generate_salts) {
-      foreach (self::$salt_keys as $key) {
-        self::$env_vars[$key] = self::generate_salt();
-      }
+    foreach (self::$salt_keys as $key) {
+      self::$env_vars[$key] = self::generate_salt();
     }
 
     $env_file = $root . '/.env';
