@@ -57,6 +57,7 @@ server {
 	fastcgi_param PHP_VALUE "error_log=/var/log/nginx/${SITENAME}_php.log";
 
 	include /etc/nginx/nginx-wp-owndir.conf
+}
 EOF
 
 # Create hosts file
