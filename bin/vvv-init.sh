@@ -42,9 +42,6 @@ if ! [ -f /etc/nginx/nginx-wp-owndir.conf ]; then
 	sudo cp "${BASEDIR}/config/nginx-wp-owndir.conf" /etc/nginx/nginx-wp-owndir.conf
 fi
 
-exit
-
-
 # Create nginx config file
 echo "* Creating nginx config file"
 
