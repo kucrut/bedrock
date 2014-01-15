@@ -64,4 +64,4 @@ EOF
 echo "* Creating vvv hosts file"
 echo $DOMAIN_NAMES | sed -e 's/\s\+/\n/g' > "${BASEDIR}/config/vvv-hosts"
 
-echo -e "## ${SITENAME} is ready!##\n"
+echo -e "${SITENAME} is ready!\n\n"
