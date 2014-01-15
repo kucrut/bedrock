@@ -66,8 +66,9 @@ class Installer {
       $generate_salts = $composer->getConfig()->get('generate-salts');
     }
     else {
+      $io->write('<info>Generating .env file</info>');
       foreach ($env as $key => $props) {
-        $value = $io->ask(sprintf('<info>%s</info> [<comment>%s</comment>] ', $props['question'], $props['default']), $props['default']);
+        $value = $io->ask(sprintf('%s [<comment>%s</comment>] ', $props['question'], $props['default']), $props['default']);
         if ('DB_NAME' === $key || 'DB_USER' === $key) {
           $value = self::stripNonAlphaNumerics($value);
           if (empty($value)) {
