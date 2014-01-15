@@ -34,7 +34,7 @@ class Installer {
         'question' => '(Main site) Domain Name',
       ),
       'DB_NAME' => array(
-        'default'  => $domain,
+        'default'  => self::stripNonAlphaNumerics($domain),
         'question' => 'Database Name',
       ),
       'DB_USER' => array(
