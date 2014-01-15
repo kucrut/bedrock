@@ -5,7 +5,43 @@ namespace Bedrock;
 use Composer\Script\Event;
 
 class Installer {
-  public static $env_vars = array();
+
+  public static $base_dir;
+
+  public static $env_vars = array(
+    'WP_ENV' => array(
+      'default'  => 'development',
+      'question' => 'Environment',
+    ),
+    'DOMAIN_CURRENT_SITE' => array(
+      'default'  => array(__CLASS__, '_getDirName'),
+      'question' => '(Main site) Domain Name',
+    ),
+    'DOMAIN_NAMES' => array(
+      'default'  => array(__CLASS__, '_getEnvValue'),
+      'args'     => 'DOMAIN_CURRENT_SITE',
+      'question' => 'Domain Names (for multisite)',
+    ),
+    'DB_NAME' => array(
+      'default'   => array(__CLASS__, '_getEnvValue'),
+      'args'      => 'DOMAIN_CURRENT_SITE',
+      'question'  => 'Database Name',
+      'validator' => array(__CLASS__, 'stripNonAlphaNumerics'),
+    ),
+    'DB_USER' => array(
+      'default'   => 'wp',
+      'question'  => 'Database User',
+      'validator' => array(__CLASS__, 'stripNonAlphaNumerics'),
+    ),
+    'DB_PASSWORD' => array(
+      'default'  => 'wp',
+      'question' => 'Database Password',
+    ),
+    'DB_HOST' => array(
+      'default'  => 'localhost',
+      'question' => 'Database Host',
+    ),
+  );
 
   public static $salt_keys = array(
     'AUTH_KEY',
@@ -19,62 +55,25 @@ class Installer {
   );
 
   public static function createEnv(Event $event) {
-    $root = dirname(dirname(__DIR__));
+    self::$base_dir = dirname(dirname(__DIR__));
     $composer = $event->getComposer();
     $io = $event->getIO();
 
-    $domain = basename($root);
-    $env = array(
-      'WP_ENV' => array(
-        'default'  => 'development',
-        'question' => 'Environment',
-      ),
-      'DOMAIN_CURRENT_SITE' => array(
-        'default'  => $domain,
-        'question' => '(Main site) Domain Name',
-      ),
-      'DB_NAME' => array(
-        'default'  => self::stripNonAlphaNumerics($domain),
-        'question' => 'Database Name',
-      ),
-      'DB_USER' => array(
-        'default'  => 'wp',
-        'question' => 'Database User',
-      ),
-      'DB_PASSWORD' => array(
-        'default'  => 'wp',
-        'question' => 'Database Password',
-      ),
-      'DB_HOST' => array(
-        'default'  => 'localhost',
-        'question' => 'Database Host',
-      ),
-    );
-
     if (!$io->isInteractive()) {
       array_walk(
-        $env,
+        self::$env_vars,
         function(&$props, $key) {
-          $props = $props['default'];
-          if ('DB_NAME' === $key || 'DB_USER' === $key) {
-            $props = self::stripNonAlphaNumerics($props);
-          }
+          $value = self::_getDefault($props, true);
+          $props = $value;
         }
       );
-      self::$env_vars = $env;
     }
     else {
       $io->write('<info>Generating .env file</info>');
-      foreach ($env as $key => $props) {
-        $value = $io->ask(sprintf('%s [<comment>%s</comment>] ', $props['question'], $props['default']), $props['default']);
-        if ('DB_NAME' === $key || 'DB_USER' === $key) {
-          $value = self::stripNonAlphaNumerics($value);
-          if (empty($value)) {
-      $value = $props['default'];
-          }
-        }
-
-        self::$env_vars[$key] = $value;
+      foreach (self::$env_vars as $key => $props) {
+        $default = self::_getDefault($props);
+        $value = $io->ask(sprintf('%s [<comment>%s</comment>]: ', $props['question'], $default), $default);
+        self::$env_vars[$key] = self::_validate($value, $props);
       }
     }
 
@@ -85,7 +84,7 @@ class Installer {
       self::$env_vars[$key] = self::generate_salt();
     }
 
-    $env_file = $root . '/.env';
+    $env_file = self::$base_dir . '/.env';
     $env_vars = array();
     foreach (self::$env_vars as $key => $value) {
       $env_vars[] = sprintf("%s='%s'", $key, $value);
@@ -122,5 +121,42 @@ class Installer {
 
   public static function stripNonAlphaNumerics($string) {
     return preg_replace('/[^a-zA-Z0-9_]+/', '_', $string);
+  }
+
+  private static function _getDirName() {
+    return basename(self::$base_dir);
+  }
+
+  private static function _getDefault(Array $props, $validate = true) {
+    if (is_callable($props['default'])) {
+      if (empty($props['args'])) {
+        $props['args'] = array();
+      }
+      $props['default'] = call_user_func_array($props['default'], (array)$props['args']);
+      if ($validate) {
+        $props['default'] = self::_validate($props['default'], $props);
+      }
+    }
+
+    return $props['default'];
+  }
+
+  private static function _getEnvValue($key) {
+    if (isset(self::$env_vars[$key])) {
+      return self::$env_vars[$key];
+    }
+
+    return false;
+  }
+
+  private static function _validate($value, Array $props) {
+    if (!empty($props['validator']) && is_callable($props['validator'])) {
+      $value = call_user_func_array($props['validator'], (array)$value);
+      if (empty($value)) {
+        $value = self::_getDefault($props);
+      }
+    }
+
+    return $value;
   }
 }
