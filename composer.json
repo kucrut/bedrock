@@ -31,7 +31,7 @@
     "psr-0": {"Bedrock\\Installer": "scripts"}
   },
   "scripts": {
-    "post-root-package-install": ["Bedrock\\Installer::createEnv"]
+    "post-install-cmd": ["Bedrock\\Installer::createEnv"]
   },
   "repositories": [
     {
