@@ -18,6 +18,7 @@ root/app/plugins/*
 !root/app/plugins/.gitkeep
 root/app/mu-plugins/*
 !root/app/mu-plugins/register-theme-directory.php
+!root/app/mu-plugins/dashboard-columns-options.php
 
 # Vendor (e.g. Composer)
 vendor/*
