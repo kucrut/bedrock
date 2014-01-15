@@ -1,6 +1,6 @@
 <?php
 $base_dir = dirname(dirname(__FILE__));
-$root_dir = "{$basedir}/root";
+$root_dir = "${base_dir}/root";
 
 /**
  * Use Dotenv to set required environment variables and load .env file in root
