@@ -41,6 +41,11 @@ class Installer {
       'default'  => 'localhost',
       'question' => 'Database Host',
     ),
+    'TABLE_PREFIX' => array(
+      'default'   => 'wp_',
+      'question'  => 'Table Prefix',
+      'validator' => array(__CLASS__, 'stripNonAlphaNumerics'),
+    ),
   );
 
   public static $salt_keys = array(
