@@ -61,6 +61,9 @@ define('DISALLOW_FILE_EDIT', true);
 /**
  * Multisite
  */
+// We don't support sub-dir install (yet?)
+define('ALLOW_SUBDIRECTORY_INSTALL', false);
+
 #define('WP_ALLOW_MULTISITE', true);
 /*
 define('MULTISITE', true);
