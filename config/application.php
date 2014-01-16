@@ -26,6 +26,13 @@ if (file_exists($env_config)) {
 }
 
 /**
+ * URLs
+ */
+define('WP_HOME', getenv('WP_HOME'));
+define('WP_SITEURL', getenv('WP_SITEURL'));
+
+
+/**
  * Custom Content Directory
  */
 define('CONTENT_DIR', '/app');
