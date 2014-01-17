@@ -66,6 +66,7 @@ class Installer {
 
   public static function createEnv(Event $event) {
     self::$base_dir = dirname(dirname(__DIR__));
+    $filename = '.env';
     $composer = $event->getComposer();
     $io = $event->getIO();
 
@@ -79,7 +80,19 @@ class Installer {
       );
     }
     else {
-      $io->write('<info>Generating .env file</info>');
+      $filename = $io->askAndValidate(
+        sprintf('Filename to write environment variables to [<comment>%s</comment>]:', $filename),
+        function ($string, $x = 0) {
+          if(!preg_match('#^[\w\._-]+$#i', $string)) {
+            throw new \RunTimeException( 'The filename can only contains alphanumerics, dots, and underscores' );
+          }
+          return $string;
+        },
+        false,
+        $filename
+      );
+
+      $io->write(sprintf('<info>Generating <comment>"%s"</comment> file</info>', $filename));
       foreach (self::$env_vars as $key => $props) {
         $default = self::_getDefault($props);
         if (!empty($props['yesno'])) {
@@ -99,7 +112,7 @@ class Installer {
       self::$env_vars[$key] = self::generate_salt();
     }
 
-    $env_file = self::$base_dir . '/.env';
+    $env_file = sprintf('%s/%s', self::$base_dir, $filename);
     $env_vars = array();
     foreach (self::$env_vars as $key => $value) {
       $env_vars[] = sprintf("%s='%s'", $key, $value);
@@ -108,7 +121,7 @@ class Installer {
 
     try {
       file_put_contents($env_file, $env_vars, LOCK_EX);
-      $io->write("<info>.env file successfully created.</info>");
+      $io->write(sprintf('<info><comment>%s</comment> successfully created.</info>', $filename));
     } catch (\Exception $e) {
       $io->write('<error>An error occured while creating your .env file. Error message:</error>');
       $io->write(sprintf('<error>%s</error>%s', $e->getMessage(), "\n"));
