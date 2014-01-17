@@ -13,6 +13,11 @@ class Installer {
       'default'  => 'development',
       'question' => 'Environment',
     ),
+    'WP_LOCAL_DEV' => array(
+      'default'  => true,
+      'question' => 'Is this a local environment?',
+      'yesno'    => true,
+    ),
     'DOMAIN_CURRENT_SITE' => array(
       'default'  => array(__CLASS__, '_getDirName'),
       'question' => '(Main site) Domain Name',
@@ -77,7 +82,12 @@ class Installer {
       $io->write('<info>Generating .env file</info>');
       foreach (self::$env_vars as $key => $props) {
         $default = self::_getDefault($props);
-        $value = $io->ask(sprintf('%s [<comment>%s</comment>]: ', $props['question'], $default), $default);
+        if (!empty($props['yesno'])) {
+          $value = $io->askConfirmation(sprintf('%s [<comment>Y,n</comment>]: ', $props['question']), $default);
+        }
+        else {
+          $value = $io->ask(sprintf('%s [<comment>%s</comment>]: ', $props['question'], $default), $default);
+        }
         self::$env_vars[$key] = self::_validate($value, $props);
       }
     }
