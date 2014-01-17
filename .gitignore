@@ -12,6 +12,7 @@ sql-dump-*.sql
 !.env.example
 
 # Application
+root/app/cache
 root/app/uploads
 root/app/upgrade
 root/app/plugins/*
