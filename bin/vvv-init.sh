@@ -4,6 +4,54 @@ pushd $(dirname $0) > /dev/null
 BASEDIR=$(dirname $(pwd))
 popd > /dev/null
 
+SCRIPT_NAME=$(basename $0)
+USER=$(whoami)
+HOST=$(hostname)
+
+if [[ 'vagrant' != "${USER}" ]] || [[ 'vvv' != "${HOST}" ]]; then
+	echo "${SCRIPT_NAME} must be run by the vvv user inside vagrant host."
+	exit 1
+fi
+
+T_BOLD=$(tput bold)
+T_NORMAL=$(tput sgr0)
+T_UNDERSCORE=$(tput smul)
+
+while :
+do
+	case $1 in
+		-h | --help | -\?)
+cat << HELP
+
+Usage: ${SCRIPT_NAME} [-r]
+
+Options:
+ -h or --help      Print this message and exit.
+ -r or --reinit    Reinitialize site. This will (re)create the ${T_UNDERSCORE}vvv-hosts${T_NORMAL} and
+                   ${T_UNDERSCORE}vvv-nginx.conf${T_NORMAL} files inside the ${T_UNDERSCORE}config/${T_NORMAL} directory.
+
+HELP
+			exit 0      # This is not an error, User asked help. Don't do "exit 1"
+			;;
+		#-f | --file)
+		#	# You might want to check if you really got FILE
+		#	file=$2
+		#	shift 2
+		#	;;
+		#--file=*)
+		#	# Delete everything up till "="
+		#	file=${1#*=}
+		#	shift
+		#	;;
+		-*)
+			shift
+			;;
+		*)  # no more options. Stop while loop
+			break
+			;;
+	esac
+done
+
 ENV_FILE="${BASEDIR}/.env"
 if ! [ -f $ENV_FILE ]; then
 	echo -e ".env file not found in ${BASEDIR}, exiting.\n"
