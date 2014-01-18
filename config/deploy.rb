@@ -38,12 +38,13 @@ namespace :deploy do
 
 end
 
-remote_file '.env' => "#{Dir.pwd}/.env", roles: :app
+remote_file '.env' => "/tmp/#{fetch(:application)}.env", roles: :app
 
-file "#{Dir.pwd}/.env" do |t|
+file "/tmp/#{fetch(:application)}.env" do |t|
   if !FileTest.exist? "#{shared_path}/.env"
+    puts t.name
     puts "\n\033[32mLet's create the \033[33m.env\033[32m file for \033[33m#{fetch(:stage)}\033[0m\n\n"
-    sh "composer run-script post-install-cmd"
+    sh "export ENV_FILE=/tmp/#{fetch(:application)}.env && composer run-script post-install-cmd"
     puts "\n"
   end
 end
