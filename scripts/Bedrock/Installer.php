@@ -118,7 +118,12 @@ class Installer {
       self::$env_vars[$key] = self::generate_salt();
     }
 
-    $env_file = sprintf('%s/%s', self::$base_dir, $filename);
+    if(0 === strpos($filename, '/')) {
+      $env_file = $filename;
+    }
+    else {
+      $env_file = sprintf('%s/%s', self::$base_dir, $filename);
+    }
     $env_vars = array();
     foreach (self::$env_vars as $key => $value) {
       $env_vars[] = sprintf("%s='%s'", $key, $value);
