@@ -1,4 +1,6 @@
 #!/bin/bash
+
+VERSION='0.1'
 WORKDIR=$(pwd)
 
 SCRIPT_NAME=$(basename $0)
@@ -42,6 +44,9 @@ ${T_BOLD}OPTIONS:${T_NORMAL}
 
   -u, --umount
       Umount.
+
+  -V, --version
+      Print version and exit.
 EOH
 
 # Check parameters
@@ -57,15 +62,6 @@ do
 			RELATIVE=false
 			shift
 			;;
-		-u | --umount)
-			UMOUNT=true
-			shift
-			;;
-		-r | --remount)
-			$0 "-u" && "$0"
-			exit 0
-			shift
-			;;
 		-c | --config-file)
 			# You might want to check if you really got CONF
 			CONF=$2
@@ -76,8 +72,21 @@ do
 			CONF=${1#*=}
 			shift
 			;;
+		-r | --remount)
+			$0 "-u" && "$0"
+			exit 0
+			shift
+			;;
+		-u | --umount)
+			UMOUNT=true
+			shift
+			;;
+		-V | --version)
+			echo $VERSION
+			exit 0
+			;;
 		-*)
-			echo -e "Unrecognized option.\n"
+			echo -e "Unrecognized option '${1}'\n"
 			echo -e "${HELP}"
 			exit 1
 			;;
