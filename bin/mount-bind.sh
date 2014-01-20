@@ -82,7 +82,8 @@ do
 			shift
 			;;
 		-V | --version)
-			echo $VERSION
+			echo -e "${SCRIPT_NAME} version ${VERSION}"
+			echo -e "Copyleft ${T_BOLD}Dzikri Aziz${T_NORMAL} <kucrut@kucrut.org>"
 			exit 0
 			;;
 		-*)
