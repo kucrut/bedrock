@@ -23,16 +23,25 @@ RELATIVE=true
 
 # Help message
 read -d '' HELP << EOH || true
-Usage: ${T_BOLD}${0}${T_NORMAL} [-a|--absolute-path] [-u|--umount] [-c <filename>|--config-file=<filename>]
+${T_BOLD}USAGE:${T_NORMAL}
+${T_BOLD}${0}${T_NORMAL} [-a|--absolute-path] [-u|--umount] [-c <filename>|--config-file=<filename>]
 
-Options:
- -h | -? | --help                    Print this message and exit.
- -a | --absolute-path                Use absolute path for the mount points. If this option is
-                                     specified, the script will consider the mount point paths
-                                     relative to the ${T_BOLD}current working dir${T_NORMAL}.
- -r | --remount                      Remount.
- -u | --umount                       Umount instead of mount.
- -c ${T_GREEN}<file>${T_NORMAL} | --config-file=${T_GREEN}<file>${T_NORMAL}    Config file location, defaults to ${T_UNDERSCORE}config/mounts.conf${T_NORMAL}
+${T_BOLD}OPTIONS:${T_NORMAL}
+  -h, -?, --help
+      Print this message and exit.
+
+  -a, --absolute-path
+      Use absolute path for the mount points. If this option is specified, the script
+      will consider the mount point paths relative to the ${T_BOLD}current working dir${T_NORMAL}.
+
+  -c ${T_GREEN}<file>${T_NORMAL}, --config-file=${T_GREEN}<file>${T_NORMAL}
+      Config file location, defaults to ${T_UNDERSCORE}config/mounts.conf${T_NORMAL}
+
+  -r, --remount
+      Remount.
+
+  -u, --umount
+      Umount.
 EOH
 
 # Check parameters
