@@ -12,7 +12,7 @@ T_UNDERSCORE=$(tput smul)
 T_GREEN=$(tput setf 2)
 
 if [[ 'vagrant' = "${USER}" ]] || [[ 'vvv' = "${HOST}" ]]; then
-	echo "This script must should be run from ${T_UNDERSCORE}outside${T_NORMAL} the vvv host."
+	echo "This script must be run from ${T_UNDERSCORE}outside${T_NORMAL} the vvv host."
 	exit 1
 fi
 
