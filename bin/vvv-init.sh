@@ -4,6 +4,7 @@ pushd $(dirname $0) > /dev/null
 BASEDIR=$(dirname $(pwd))
 popd > /dev/null
 
+VERSION='0.1'
 SCRIPT_NAME=$(basename $0)
 USER=$(whoami)
 HOST=$(hostname)
@@ -21,38 +22,39 @@ T_UNDERSCORE=$(tput smul)
 # Defaults
 REINIT=false
 
+# Help Message
+read -d '' HELP << EOH || true
+${T_BOLD}USAGE:${T_NORMAL} ${SCRIPT_NAME} [-r] [-h|-?|--help]
+
+${T_BOLD}OPTIONS:${T_NORMAL}
+  -h, -?, --help
+      Print this message and exit.
+
+  -r, --reinit
+      Reinitialize site. This will (re)create the ${T_UNDERSCORE}vvv-hosts${T_NORMAL} and ${T_UNDERSCORE}vvv-nginx.conf${T_NORMAL}
+      files inside the ${T_UNDERSCORE}config/${T_NORMAL} directory.
+EOH
+
 while :
 do
 	case $1 in
 		-h | --help | -\?)
-cat << HELP
-
-Usage: ${SCRIPT_NAME} [-r]
-
-Options:
- -h or --help      Print this message and exit.
- -r or --reinit    Reinitialize site. This will (re)create the ${T_UNDERSCORE}vvv-hosts${T_NORMAL} and
-                   ${T_UNDERSCORE}vvv-nginx.conf${T_NORMAL} files inside the ${T_UNDERSCORE}config/${T_NORMAL} directory.
-
-HELP
-			exit 0      # This is not an error, User asked help. Don't do "exit 1"
+			echo "${HELP}"
+			exit 0
 			;;
 		-r | --reinit)
 			REINIT=true
 			shift
 			;;
-		#-f | --file)
-		#	# You might want to check if you really got FILE
-		#	file=$2
-		#	shift 2
-		#	;;
-		#--file=*)
-		#	# Delete everything up till "="
-		#	file=${1#*=}
-		#	shift
-		#	;;
+		-V | --version)
+			echo -e "${SCRIPT_NAME} version ${VERSION}"
+			echo -e "Copyleft ${T_BOLD}Dzikri Aziz${T_NORMAL} <kucrut@kucrut.org>"
+			exit 0
+			;;
 		-*)
-			shift
+			echo -e "Unrecognized option '${1}'\n"
+			echo -e "${HELP}"
+			exit 1
 			;;
 		*)  # no more options. Stop while loop
 			break
@@ -176,7 +178,7 @@ if [ -n "${ADD_TO_HOST}" ]; then
 	BORDER_CHAR="="
 	BORDER_LENGTH=$((${BORDER_LENGTH} - 8))
 	BORDER=$(printf "%${BORDER_LENGTH}s" | sed "s/ /${BORDER_CHAR}/g" )
-	echo -e "\n*** Add the following lines to your HOST SYSTEM's /etc/hosts file ***\n"
+	echo -e "\n*** Add the following lines to your ${T_BOLD}HOST SYSTEM's${T_NORMAL} ${T_UNDERSCORE}/etc/hosts${T_NORMAL} file ***\n"
 	echo -e "### ${BORDER} ###"
 	echo -e $ADD_TO_HOST | sed '/^$/d'
 	echo -e "### ${BORDER} ###\n"
