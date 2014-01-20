@@ -26,7 +26,7 @@ RELATIVE=true
 # Help message
 read -d '' HELP << EOH || true
 ${T_BOLD}USAGE:${T_NORMAL}
-${T_BOLD}${0}${T_NORMAL} [-a|--absolute-path] [-u|--umount] [-c <filename>|--config-file=<filename>]
+${T_BOLD}${0}${T_NORMAL} [-a|--absolute-path] [-u|--umount] [-c <file>|--config-file=<file>]
 
 ${T_BOLD}OPTIONS:${T_NORMAL}
   -h, -?, --help
