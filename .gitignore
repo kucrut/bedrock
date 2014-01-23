@@ -28,3 +28,12 @@ vendor/*
 
 # Node Package Manager
 node_modules
+
+# Misc
+/nginx.conf
+app/w3tc-config/
+
+# VVV
+config/vvv-hosts
+config/vvv-nginx.conf
+config/mounts.conf
