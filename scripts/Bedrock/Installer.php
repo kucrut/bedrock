@@ -66,13 +66,14 @@ class Installer {
 
   public static function createEnv(Event $event) {
     self::$base_dir = dirname(dirname(__DIR__));
+    $default_filename = '.env';
     $filename = getenv('ENV_FILE');
     $composer = $event->getComposer();
     $io = $event->getIO();
 
     if (!$io->isInteractive()) {
       if (empty($filename)) {
-        $filename = '.env';
+        $filename = $default_filename;
       }
 
       array_walk(
@@ -86,7 +87,7 @@ class Installer {
     else {
       if (empty($filename)) {
         $filename = $io->askAndValidate(
-          sprintf('Filename to write environment variables to [<comment>%s</comment>]:', $filename),
+          sprintf('Filename to write environment variables to [<comment>%s</comment>]:', $default_filename),
           function ($string, $x = 0) {
             if(!preg_match('#^[\w\._-]+$#i', $string)) {
               throw new \RunTimeException( 'The filename can only contains alphanumerics, dots, and underscores' );
@@ -94,7 +95,7 @@ class Installer {
             return $string;
           },
           false,
-          $filename
+          $default_filename
         );
       }
 
