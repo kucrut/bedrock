@@ -31,14 +31,6 @@ If you aren't interested in using a part, then you don't need its requirements e
 
 ## Installation/Usage
 
-See [Documentation](#documentation) for more details on the steps below.
-
-### Using `create-project`
-
-**TODO**
-
-### Manually
-
 1. Clone/Fork repo inside VVV's `www` directory
 2. Run `composer install`
 3. Answer the questions to generate the `.env` file
@@ -48,7 +40,9 @@ See [Documentation](#documentation) for more details on the steps below.
 5. Add theme(s)
 6. Access WP Admin at `http://<CHOSEN DOMAIN NAME>/wp/wp-admin`
 7. Multisite? run `bin/setup-multisite.sh`
-8. Using Capistrano for deploys? Edit stage/environment configs in `config/deploy/` to set the roles/servers and connection options.
+8. Using Capistrano for deploys?
+  * Install Capistrano: `gem install capistrano capistrano-composer capistrano-ext railsless-deploy`
+  * Edit stage/environment configs in `config/deploy/` to set the roles/servers and connection options.
 
 ## Documentation
 
