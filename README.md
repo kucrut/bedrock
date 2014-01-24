@@ -1,6 +1,6 @@
-# WP Base
+# WP Stack
 
-WP Base is a modern WordPress stack based on [Bedrock](http://roots.io/wordpress-stack/) that helps you get started with the best development tools and project structure.
+WP Stack is a modern WordPress stack based on [Bedrock](http://roots.io/wordpress-stack/) that helps you get started with the best development tools and project structure.
 
 ## Quick Start
 
@@ -15,7 +15,7 @@ See [Installation/Usage](#installationusage) for more details)
 * Environment variables with [Dotenv](https://github.com/vlucas/phpdotenv)
 * Easy development environments with [VVV](https://github.com/10up/varying-vagrant-vagrants/)
 
-WP Base is meant as a base for you to fork and modify to fit your needs. It is delete-key friendly and you can strip out or modify any part of it. You'll also want to customize WP Base with settings specific to your sites/company.
+WP Stack is meant as a base for you to fork and modify to fit your needs. It is delete-key friendly and you can strip out or modify any part of it. You'll also want to customize WP Stack with settings specific to your sites/company.
 
 Much of the philosphy behind Bedrock is inspired by the [Twelve-Factor App](http://12factor.net/) methodology including the [WordPress specific version](http://roots.io/twelve-factor-wordpress/).
 
@@ -43,11 +43,12 @@ See [Documentation](#documentation) for more details on the steps below.
 2. Run `composer install`
 3. Answer the questions to generate the `.env` file
 4. Initialize site:
-  * You can reload vagrant by running `vagrant reload --provision`
+  * Fire up VVV by running `vagrant reload --provision`
   * Or, if it's already running, you can run **from within the vagrant environment** `./bin/vvv-init.sh -r`
 5. Add theme(s)
 6. Access WP Admin at `http://<CHOSEN DOMAIN NAME>/wp/wp-admin`
-7. Using Capistrano for deploys? Edit stage/environment configs in `config/deploy/` to set the roles/servers and connection options.
+7. Multisite? run `bin/setup-multisite.sh`
+8. Using Capistrano for deploys? Edit stage/environment configs in `config/deploy/` to set the roles/servers and connection options.
 
 ## Documentation
 
@@ -55,6 +56,8 @@ See [Documentation](#documentation) for more details on the steps below.
 
 ```
 ├── bin
+│   │── mount-bind.sh
+│   │── setup-multisite.sh
 │   └── vvv-init.sh
 ├── config
 │   │── deploy
@@ -85,7 +88,7 @@ See [Documentation](#documentation) for more details on the steps below.
 └── composer.lock
 ```
 
-The organization of WP Base is similar to putting WordPress in its own subdirectory but with some improvements.
+The organization of WP Stack is similar to putting WordPress in its own subdirectory but with some improvements.
 
 * `wp-content` (or maybe just `content`) has been named `app` to better reflect its contents. It contains application code and not just "static content". It also matches up with other frameworks such as Symfony and Rails.
 * `wp-config.php` remains in the root because it's required by WP, but it only acts as a loader. The actual configuration files have been moved to `config/` for better separation.
@@ -110,7 +113,7 @@ Note: You can't re-define constants in PHP. So if you have a base setting in `ap
 
 ### Environment Variables
 
-WP Base tries to separate config from code as much as possible and environment variables are used to achieve this. The benefit is there's a single place (`.env`) to keep settings like database or other 3rd party credentials that isn't committed to your repository.
+WP Stack tries to separate config from code as much as possible and environment variables are used to achieve this. The benefit is there's a single place (`.env`) to keep settings like database or other 3rd party credentials that isn't committed to your repository.
 
 [PHP dotenv](https://github.com/vlucas/phpdotenv) is used to load the `.env` file. All variables are then available in your app by `getenv`, `$_SERVER`, or `$_ENV`.
 
@@ -122,18 +125,9 @@ Currently, the following env vars are required:
 * `WP_HOME`
 * `WP_SITEURL`
 
-#### Don't want it?
-
-You will lose the separation between config and code and potentially put secure credentials at risk.
-
-* Remove `dotenv` from `composer.json` requires
-* Remove `.env.example` file from root
-* Remove `require_once('vendor/autoload.php');` from `wp-config.php`
-* Replace all `getenv` calls with whatever method you want to set those values
-
 ### Composer
 
-[Composer](http://getcomposer.org) is used to manage dependencies. WP Base considers any 3rd party library as a dependency including WordPress itself and any plugins.
+[Composer](http://getcomposer.org) is used to manage dependencies. WP Stack considers any 3rd party library as a dependency including WordPress itself and any plugins.
 
 See these two blogs for more extensive documentation:
 
@@ -183,7 +177,7 @@ You will lose the one-command deploys and built-in integration with Composer. An
 
 ### wp-cron
 
-WP Base disables the internal WP Cron via `define('DISABLE_WP_CRON', true);`. If you keep this setting, you'll need to manually set a cron job like the following in your crontab file:
+WP Stack disables the internal WP Cron via `define('DISABLE_WP_CRON', true);`. If you keep this setting, you'll need to manually set a cron job like the following in your crontab file:
 
 `*/5 * * * * curl http://example.com/wp/wp-cron.php`
 
