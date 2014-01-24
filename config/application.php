@@ -67,23 +67,11 @@ define('DISALLOW_FILE_EDIT', true);
 
 /**
  * Multisite
+ *
+ * The token below will be replaced with the real
+ * multisite configs when you run bin/setup-multisite.sh
  */
-// We don't support sub-dir install (yet?)
-define('ALLOW_SUBDIRECTORY_INSTALL', false);
-
-#define('WP_ALLOW_MULTISITE', true);
-/*
-define('MULTISITE', true);
-define('SUBDOMAIN_INSTALL', true);
-define('DOMAIN_CURRENT_SITE', getenv('DOMAIN_CURRENT_SITE') );
-define('PATH_CURRENT_SITE', '/');
-define('SITE_ID_CURRENT_SITE', 1);
-define('BLOG_ID_CURRENT_SITE', 1);
-define('ADMIN_COOKIE_PATH', '/');
-define('COOKIE_DOMAIN', '');
-define('COOKIEPATH', '');
-define('SITECOOKIEPATH', '');
-*/
+#MULTISITE_CONFIGS#
 
 /**
  * Bootstrap WordPress
