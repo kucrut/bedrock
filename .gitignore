@@ -40,3 +40,7 @@ app/w3tc-config/
 config/vvv-hosts
 config/vvv-nginx.conf
 config/mounts.conf
+
+# Editors
+*.kate-swp
+*.swp
