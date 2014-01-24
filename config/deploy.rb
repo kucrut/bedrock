@@ -17,7 +17,7 @@ set :deploy_to, "/srv/www/#{fetch(:application)}"
 set :log_level, :info
 
 set :linked_files, %w{.env}
-set :linked_dirs, %w{root/app/uploads}
+set :linked_dirs, %w{root/app/uploads root/app/cache}
 
 namespace :deploy do
 
