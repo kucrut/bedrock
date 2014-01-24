@@ -18,6 +18,7 @@ fi
 T_BOLD=$(tput bold)
 T_NORMAL=$(tput sgr0)
 T_UNDERSCORE=$(tput smul)
+T_GREEN=$(tput setf 2)
 
 # Defaults
 REINIT=false
@@ -64,8 +65,12 @@ done
 
 ENV_FILE="${BASEDIR}/.env"
 if ! [ -f $ENV_FILE ]; then
-	echo -e ".env file not found in ${BASEDIR}, exiting.\n"
-	exit 1
+	read -p ".env file not found in ${BASEDIR}, do you want to run ${T_GREEN}composer install${T_NORMAL}? [Y/n] " -r < /dev/tty
+	if [ -z "${REPLY}" ] || [[ $REPLY =~ ^[Yy]$ ]]; then
+		composer install
+	else
+		exit 1
+	fi
 fi
 
 source $ENV_FILE
