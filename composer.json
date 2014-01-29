@@ -35,7 +35,7 @@
   "repositories": [
     {
       "type": "composer",
-      "url": "http://wpackagist.org"
+      "url": "http://kucrut.github.io/packages/composer"
     },
     {
       "type": "package",
