@@ -6,7 +6,14 @@ $root_dir = "${base_dir}/root";
  * Use Dotenv to set required environment variables and load .env file in root
  */
 Dotenv::load($base_dir);
-Dotenv::required(array('DB_NAME', 'DB_USER', 'DB_PASSWORD', 'WP_HOME', 'WP_SITEURL'));
+Dotenv::required(
+	array(
+		'DB_NAME', 'DB_USER', 'DB_PASSWORD', 'TABLE_PREFIX',
+		'WP_HOME', 'WP_SITEURL', 'LOGGED_IN_KEY', 'LOGGED_IN_SALT'
+		'AUTH_KEY', 'AUTH_SALT', 'SECURE_AUTH_KEY', 'SECURE_AUTH_SALT',
+		'NONCE_KEY', 'NONCE_SALT',
+	)
+);
 
 /**
  * Set up our global environment constant and load its config first

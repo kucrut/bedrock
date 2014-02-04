@@ -89,7 +89,7 @@ fi
 # Create database, if we don't already have one
 echo " * Creating database ${T_BOLD}${DB_NAME}${T_NORMAL}";
 SQL="CREATE DATABASE IF NOT EXISTS ${DB_NAME} DEFAULT CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci';"
-SQL="${SQL} GRANT ALL PRIVILEGES ON ${DB_NAME}.* TO ${DB_USER}@${DB_HOST} IDENTIFIED BY '${DB_PASSWORD}';"
+SQL="${SQL} GRANT ALL PRIVILEGES ON ${DB_NAME}.* TO '${DB_USER}'@'${DB_HOST}' IDENTIFIED BY '${DB_PASSWORD}';"
 mysql -u root --password=root -e "${SQL}"
 
 # Create log files

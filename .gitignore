@@ -12,16 +12,17 @@ sql-dump-*.sql
 !.env.example
 
 # Application
-root/app/cache
+root/app/cache/*
 !root/app/cache/index.php
-root/app/uploads
+root/app/uploads/*
 !root/app/uploads/index.php
-root/app/upgrade
-root/app/plugins
+root/app/upgrade/*
+root/app/plugins/*
 !root/app/plugins/index.php
-root/app/mu-plugins
+root/app/mu-plugins/*
 !root/app/mu-plugins/index.php
 !root/app/mu-plugins/dashboard-columns-options.php
+!root/app/mu-plugins/disable-plugins-when-doing-local-dev.php
 !root/app/mu-plugins/disallow-subdirectory-install.php
 !root/app/mu-plugins/register-theme-directory.php
 

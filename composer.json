@@ -1,72 +1,58 @@
 {
-  "name": "roots/bedrock",
-  "type": "project",
-  "license": "MIT",
-  "description": "A modern WordPress stack",
-  "homepage": "http://roots.io/wordpress-stack/",
-  "authors": [
-    {
-      "name": "Scott Walkinshaw",
-      "email": "scott.walkinshaw@gmail.com",
-      "homepage": "https://github.com/swalkinshaw"
-    },
-    {
-      "name": "Ben Word",
-      "email": "ben@benword.com",
-      "homepage": "https://github.com/retlehs"
-    }
-  ],
-  "keywords": [
-    "wordpress", "stack", "capistrano", "composer", "vagrant", "wp"
-  ],
-  "support": {
-    "issues": "https://github.com/roots/bedrock/issues",
-    "forum": "http://discourse.roots.io/category/bedrock"
-  },
-  "config": {
-    "preferred-install": "dist"
-  },
-  "autoload": {
-    "psr-0": {"Bedrock\\Installer": "scripts"}
-  },
-  "scripts": {
-    "post-install-cmd": ["Bedrock\\Installer::createEnv"]
-  },
-  "repositories": [
-    {
-      "type": "composer",
-      "url": "http://kucrut.github.io/packages/composer"
-    },
-    {
-      "type": "package",
-      "package": {
-        "name": "wordpress",
-        "version": "3.8.1",
-        "type": "webroot",
-        "dist": {
-          "type": "zip",
-          "url": "https://github.com/WordPress/WordPress/archive/3.8.1.zip"
-        },
-        "require" : {
-          "fancyguy/webroot-installer": "1.1.0"
-        }
-      }
-    }
-  ],
-  "require": {
-    "php": ">=5.3.0",
-    "wordpress": "3.8.1",
-    "fancyguy/webroot-installer": "1.1.0",
-    "composer/installers": "v1.0.8",
-    "vlucas/phpdotenv": "1.0.5"
-  },
-  "extra": {
-    "installer-paths": {
-      "root/app/plugins/{$name}/": ["type:wordpress-plugin"],
-      "root/app/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
-      "root/app/themes/{$name}/": ["type:wordpress-theme"]
-    },
-    "webroot-dir": "root/wp",
-    "webroot-package": "wordpress"
-  }
+	"name": "kucrut/wp-stack",
+	"type": "project",
+	"license": "GPLv2",
+	"description": "A modern WordPress stack based on Bedrock by roots.io",
+	"homepage": "https://github.com/kucrut/wp-stack",
+	"authors": [
+		{
+			"name": "Dzikri Aziz",
+			"email": "kvcrvt@gmail.com",
+			"homepage": "http://kucrut.org"
+		}
+	],
+	"keywords": [
+		"wordpress", "stack", "capistrano", "composer", "vagrant", "wp", "vvv"
+	],
+	"support": {
+		"issues": "https://github.com/kucrut/wp-stack/issues"
+	},
+	"config": {
+		"preferred-install": "dist"
+	},
+	"autoload": {
+		"psr-0": {
+			"kucrut\\env\\": "scripts",
+			"WP_Stack\\": "scripts"
+		}
+	},
+	"scripts": {
+		"post-install-cmd": ["WP_Stack\\Env::create"]
+	},
+	"repositories": [
+		{
+			"type": "composer",
+			"url": "http://kucrut.github.io/packages/composer"
+		}
+	],
+	"require": {
+		"php": ">=5.3.0",
+		"composer/installers": "v1.0.8",
+		"vlucas/phpdotenv": "1.0.5",
+		"kucrut/wordpress": "3.8.1"
+	},
+	"require-dev": {
+		"kucrut/debug-bar": "0.8.1",
+		"kucrut/log-deprecated-notices": "0.2",
+		"kucrut/theme-check": "20131213.1"
+	},
+	"extra": {
+		"installer-paths": {
+			"root/app/plugins/{$name}/": ["type:wordpress-plugin"],
+			"root/app/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
+			"root/app/themes/{$name}/": ["type:wordpress-theme"]
+		},
+		"webroot-dir": "root/wp",
+		"webroot-package": "kucrut/wordpress"
+	}
 }

@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "073db77767f481c471e572869e9b764b",
+    "hash": "074e62cbf9d6b7e001c14b83f9cdeaac",
     "packages": [
         {
             "name": "composer/installers",
@@ -113,7 +113,7 @@
             ],
             "authors": [
                 {
-                    "name": "Steve Buzonas",
+                    "name": "Steve Buzonas (slbmeh)",
                     "email": "steve@fancyguy.com",
                     "homepage": "http://www.stevebuzonas.com"
                 }
@@ -121,6 +121,24 @@
             "description": "A composer installer for libraries that live in an application webroot.",
             "homepage": "http://fancyguy.github.com/webroot-installer/",
             "time": "2013-03-15 17:51:14"
+        },
+        {
+            "name": "kucrut/wordpress",
+            "version": "3.8.1",
+            "dist": {
+                "type": "tar",
+                "url": "http://wordpress.org/wordpress-3.8.1.tar.gz",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "fancyguy/webroot-installer": "~1.1",
+                "php": ">=5.2.0"
+            },
+            "type": "webroot",
+            "license": [
+                "GPL-2.0"
+            ]
         },
         {
             "name": "vlucas/phpdotenv",
@@ -167,24 +185,82 @@
                 "environment"
             ],
             "time": "2014-01-14 16:37:15"
-        },
+        }
+    ],
+    "packages-dev": [
         {
-            "name": "wordpress",
-            "version": "3.8.1",
+            "name": "kucrut/debug-bar",
+            "version": "0.8.1",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/WordPress/WordPress/archive/3.8.1.zip",
+                "url": "http://downloads.wordpress.org/plugin/debug-bar.0.8.1.zip",
                 "reference": null,
                 "shasum": null
             },
             "require": {
-                "fancyguy/webroot-installer": "1.1.0"
+                "kucrut/wordpress": "~3.8"
             },
-            "type": "webroot"
+            "type": "wordpress-plugin",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "WordPress.org",
+                    "homepage": "http://w.org/"
+                }
+            ]
+        },
+        {
+            "name": "kucrut/log-deprecated-notices",
+            "version": "0.2",
+            "dist": {
+                "type": "zip",
+                "url": "http://downloads.wordpress.org/plugin/log-deprecated-notices.0.2.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "kucrut/wordpress": "~3.8"
+            },
+            "type": "wordpress-plugin",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Andrew Nacin",
+                    "homepage": "http://nacin.com/"
+                }
+            ]
+        },
+        {
+            "name": "kucrut/theme-check",
+            "version": "20131213.1",
+            "dist": {
+                "type": "zip",
+                "url": "http://downloads.wordpress.org/plugin/theme-check.20131213.1.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "kucrut/wordpress": "~3.8"
+            },
+            "type": "wordpress-plugin",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Simon Prosser",
+                    "homepage": "http://profiles.wordpress.org/pross/"
+                },
+                {
+                    "name": "Samuel Wood",
+                    "homepage": "http://profiles.wordpress.org/otto42/"
+                }
+            ]
         }
-    ],
-    "packages-dev": [
-
     ],
     "aliases": [
 

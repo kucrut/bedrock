@@ -72,8 +72,6 @@ If you aren't interested in using a part, then you don't need its requirements e
 │   ├── index.php
 │   └── wp-config.php
 ├── scripts
-│   └── Bedrock
-│       └── Installer.php
 ├── vendor
 ├── Capfile
 ├── Gemfile
