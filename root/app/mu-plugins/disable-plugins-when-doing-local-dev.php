@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Disable plugins when doing local dev
-Description: If the WP_LOCAL_DEV constant is true, disables plugins that you specify in DISABLED_PLUGINS env variable
+Description: Disable plugins defined in DISABLED_PLUGINS constant
 Version: 0.1
 License: GPL version 2 or any later version
 Author: Mark Jaquith
@@ -17,8 +17,12 @@ class CWS_Disable_Plugins_When_Local_Dev {
 	 * @param array $disables Optional array of plugin filenames to disable
 	 */
 	public function __construct() {
+		if ( ! defined( 'DISABLED_PLUGINS' ) || ! DISABLED_PLUGINS ) {
+			return;
+		}
+
 		$disables = array_filter(
-			preg_split( '/,\s*/', getenv( 'DISABLED_PLUGINS' ) )
+			preg_split( '/,\s*/', DISABLED_PLUGINS )
 		);
 		if ( empty( $disables ) ) {
 			return;
@@ -80,6 +84,4 @@ class CWS_Disable_Plugins_When_Local_Dev {
 	}
 }
 
-if ( defined( 'WP_LOCAL_DEV' ) && WP_LOCAL_DEV ) {
-	new CWS_Disable_Plugins_When_Local_Dev;
-}
+new CWS_Disable_Plugins_When_Local_Dev();

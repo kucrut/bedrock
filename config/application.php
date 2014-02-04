@@ -9,7 +9,7 @@ Dotenv::load($base_dir);
 Dotenv::required(
 	array(
 		'DB_NAME', 'DB_USER', 'DB_PASSWORD', 'TABLE_PREFIX',
-		'WP_HOME', 'WP_SITEURL', 'LOGGED_IN_KEY', 'LOGGED_IN_SALT'
+		'WP_HOME', 'WP_SITEURL', 'LOGGED_IN_KEY', 'LOGGED_IN_SALT',
 		'AUTH_KEY', 'AUTH_SALT', 'SECURE_AUTH_KEY', 'SECURE_AUTH_SALT',
 		'NONCE_KEY', 'NONCE_SALT',
 	)
@@ -71,6 +71,7 @@ define('NONCE_SALT',       getenv('NONCE_SALT'));
 define('AUTOMATIC_UPDATER_DISABLED', true);
 define('DISABLE_WP_CRON', true);
 define('DISALLOW_FILE_EDIT', true);
+define('DISABLED_PLUGINS', getenv('DISABLED_PLUGINS'));
 
 /**
  * Multisite
