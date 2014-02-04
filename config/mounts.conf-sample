@@ -1,0 +1,6 @@
+# Themes
+## Mine
+/path/to/theme-name root/app/themes/theme-name
+
+# Plugins
+/path/to/plugin-name root/app/themes/plugin-name
