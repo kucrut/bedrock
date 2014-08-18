@@ -31,7 +31,7 @@ fi
 # Replace ms-config
 sed "s:#MULTISITE_CONFIGS#:define('WP_ALLOW_MULTISITE', true);:" -i $WP_CONFIG_FILE
 
-echo "Please open the following URL in your browser: ${T_GREEN}${WP_SITEURL}/network.php${T_NORMAL}"
+echo "Please open the following URL in your browser: ${T_GREEN}${WP_SITEURL}/wp-admin/network.php${T_NORMAL}"
 echo "Note that you need to select ${T_GREEN}Sub-domains${T_NORMAL}. Sub-directories install is ${T_UNDERSCORE}NOT${T_NORMAL} supported by this stack."
 read -p "After clicking the ${T_GREEN}Install${T_NORMAL} button, come back here and press [Enter]... "
 
