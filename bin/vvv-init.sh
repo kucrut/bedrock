@@ -78,6 +78,7 @@ source $ENV_FILE
 # Get sitename
 SITENAME=$(echo $WP_HOME | sed 's/^http\(\|s\):\/\///g')
 DONE_MESSAGE="\n${T_BOLD}${SITENAME}${T_NORMAL} is ready!\n"
+AFTER_SETUP_MESSAGE="Don't forget to change ${T_UNDERSCORE}Site Address (URL)${T_NORMAL} in ${T_BOLD}Settings${T_NORMAL} > ${T_BOLD}General${T_NORMAL} to ${T_GREEN}${WP_HOME}${T_NORMAL}\n"
 
 echo -e "\n## Provisioning ${T_BOLD}${SITENAME}${T_NORMAL} ##\n"
 
@@ -193,4 +194,5 @@ fi
 sudo service nginx restart
 
 echo -e ${DONE_MESSAGE}
+echo -e ${AFTER_SETUP_MESSAGE}
 exit 0;
