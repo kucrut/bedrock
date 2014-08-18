@@ -33,18 +33,11 @@ if (file_exists($env_config)) {
 }
 
 /**
- * URLs
- */
-define('WP_HOME', getenv('WP_HOME'));
-define('WP_SITEURL', getenv('WP_SITEURL'));
-
-
-/**
  * Custom Content Directory
  */
 define('CONTENT_DIR', '/app');
 define('WP_CONTENT_DIR', $root_dir . CONTENT_DIR);
-define('WP_CONTENT_URL', WP_HOME . CONTENT_DIR);
+define('WP_CONTENT_URL', getenv('WP_HOME') . CONTENT_DIR);
 
 /**
  * DB settings
