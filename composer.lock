@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "bfcdd1143925ca61d55e9ff03b0a61cc",
+    "hash": "8c781d55b74ca1c583a62a0ca5df54b4",
     "packages": [
         {
             "name": "composer/installers",
@@ -139,10 +139,10 @@
         },
         {
             "name": "kucrut/wordpress",
-            "version": "3.9.2",
+            "version": "4.0",
             "dist": {
                 "type": "tar",
-                "url": "http://wordpress.org/wordpress-3.9.2.tar.gz",
+                "url": "http://wordpress.org/wordpress-4.0.tar.gz",
                 "reference": null,
                 "shasum": null
             },
@@ -206,15 +206,15 @@
     "packages-dev": [
         {
             "name": "kucrut/debug-bar",
-            "version": "0.8.1",
+            "version": "0.8.2",
             "dist": {
                 "type": "zip",
-                "url": "http://downloads.wordpress.org/plugin/debug-bar.0.8.1.zip",
+                "url": "http://downloads.wordpress.org/plugin/debug-bar.0.8.2.zip",
                 "reference": null,
                 "shasum": null
             },
             "require": {
-                "kucrut/wordpress": "~3.8"
+                "kucrut/wordpress": ">=3.8"
             },
             "type": "wordpress-plugin",
             "license": [
@@ -229,15 +229,15 @@
         },
         {
             "name": "kucrut/log-deprecated-notices",
-            "version": "0.2",
+            "version": "0.3",
             "dist": {
                 "type": "zip",
-                "url": "http://downloads.wordpress.org/plugin/log-deprecated-notices.0.2.zip",
+                "url": "http://downloads.wordpress.org/plugin/log-deprecated-notices.0.3.zip",
                 "reference": null,
                 "shasum": null
             },
             "require": {
-                "kucrut/wordpress": "~3.8"
+                "kucrut/wordpress": ">=3.8"
             },
             "type": "wordpress-plugin",
             "license": [
@@ -260,7 +260,7 @@
                 "shasum": null
             },
             "require": {
-                "kucrut/wordpress": "~3.8"
+                "kucrut/wordpress": ">=3.8"
             },
             "type": "wordpress-plugin",
             "license": [
