@@ -37,7 +37,7 @@ read -p "After clicking the ${T_GREEN}Install${T_NORMAL} button, come back here 
 
 read -r -d '' WP_MS_CONFIG << EOC || true < /dev/tty
 define('MULTISITE',            true);\\
-define('SUBDOMAIN_INSTALL',    true);\\
+define('SUBDOMAIN_INSTALL',    false);\\
 define('DOMAIN_CURRENT_SITE',  getenv('DOMAIN_CURRENT_SITE') );\\
 define('PATH_CURRENT_SITE',    '/');\\
 define('SITE_ID_CURRENT_SITE', 1);\\
