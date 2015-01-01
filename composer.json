@@ -44,7 +44,7 @@
 	"require-dev": {
 		"kucrut/debug-bar": "0.8.2",
 		"kucrut/log-deprecated-notices": "0.3",
-		"kucrut/theme-check": "20140929.1"
+		"kucrut/theme-check": "20141222.1"
 	},
 	"extra": {
 		"installer-paths": {

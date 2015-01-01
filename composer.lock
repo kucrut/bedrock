@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b5f855d6463379765f8616526481e1bb",
+    "hash": "2959bda67fe38466c76c44ef5b9fdaee",
     "packages": [
         {
             "name": "composer/installers",
@@ -260,10 +260,10 @@
         },
         {
             "name": "kucrut/theme-check",
-            "version": "20140929.1",
+            "version": "20141222.1",
             "dist": {
                 "type": "zip",
-                "url": "http://downloads.wordpress.org/plugin/theme-check.20140929.1.zip",
+                "url": "http://downloads.wordpress.org/plugin/theme-check.20141222.1.zip",
                 "reference": null,
                 "shasum": null
             },
