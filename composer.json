@@ -39,7 +39,8 @@
 		"php": ">=5.3.0",
 		"composer/installers": "v1.0.19",
 		"vlucas/phpdotenv": "1.1.0",
-		"kucrut/wordpress": "4.1"
+		"kucrut/wordpress": "4.1",
+		"kucrut/wordpress-importer": "0.6.1"
 	},
 	"require-dev": {
 		"kucrut/debug-bar": "0.8.2",

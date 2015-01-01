@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2959bda67fe38466c76c44ef5b9fdaee",
+    "hash": "ca90487ad4bc7ae5804b2819cabeadb9",
     "packages": [
         {
             "name": "composer/installers",
@@ -157,6 +157,29 @@
             "type": "webroot",
             "license": [
                 "GPL-2.0"
+            ]
+        },
+        {
+            "name": "kucrut/wordpress-importer",
+            "version": "0.6.1",
+            "dist": {
+                "type": "zip",
+                "url": "http://downloads.wordpress.org/plugin/wordpress-importer.0.6.1.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "kucrut/wordpress": ">=3.8"
+            },
+            "type": "wordpress-plugin",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "WordPress.org",
+                    "homepage": "http://w.org/"
+                }
             ]
         },
         {
