@@ -1,10 +1,9 @@
 {
-	"name": "kucrut/org-medesa",
+	"name": "kucrut/wp-stack",
 	"type": "project",
 	"license": "GPLv2",
-	"description": "http://merdesa.org",
-	"homepage": "http://merdesa.org",
-	"authors": [
+	"description": "A modern WordPress stack based on Bedrock by roots.io",
+	"homepage": "https://github.com/kucrut/wp-stack",	"authors": [
 		{
 			"name": "Dzikri Aziz",
 			"email": "kvcrvt@gmail.com",
