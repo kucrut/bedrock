@@ -1,9 +1,9 @@
 {
-	"name": "kucrut/wp-stack",
+	"name": "kucrut/org-medesa",
 	"type": "project",
 	"license": "GPLv2",
-	"description": "A modern WordPress stack based on Bedrock by roots.io",
-	"homepage": "https://github.com/kucrut/wp-stack",
+	"description": "http://merdesa.org",
+	"homepage": "http://merdesa.org",
 	"authors": [
 		{
 			"name": "Dzikri Aziz",
@@ -39,8 +39,14 @@
 		"php": ">=5.3.0",
 		"composer/installers": "v1.0.19",
 		"vlucas/phpdotenv": "1.1.0",
-		"kucrut/wordpress": "4.1",
-		"kucrut/wordpress-importer": "0.6.1"
+		"kucrut/wordpress": "4.3.1",
+		"kucrut/wordpress-importer": "0.6.1",
+		"kucrut/regenerate-thumbnails": "2.2.4",
+		"yoast/wordpress-seo": "2.3.5",
+		"kucrut/akismet": "3.1.5",
+		"kucrut/jetpack": "3.7.2",
+		"10up/simple-page-ordering": "2.2.4",
+		"kucrut/tinycoffee": "0.2.1"
 	},
 	"require-dev": {
 		"kucrut/debug-bar": "0.8.2",

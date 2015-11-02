@@ -1,11 +1,38 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ca90487ad4bc7ae5804b2819cabeadb9",
+    "hash": "2d6693d59a581b0d4f4b7e8bc9bcfca5",
+    "content-hash": "7dfc94ca3669e65381fe0bbb1fc09d64",
     "packages": [
+        {
+            "name": "10up/simple-page-ordering",
+            "version": "2.2.4",
+            "dist": {
+                "type": "zip",
+                "url": "http://downloads.wordpress.org/plugin/simple-page-ordering.2.2.4.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "kucrut/wordpress": ">=3.8"
+            },
+            "type": "wordpress-plugin",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Jake Goldman"
+                },
+                {
+                    "name": "10up",
+                    "homepage": "http://10up.com/"
+                }
+            ]
+        },
         {
             "name": "composer/installers",
             "version": "v1.0.19",
@@ -142,11 +169,106 @@
             "time": "2013-03-15 17:51:14"
         },
         {
+            "name": "kucrut/akismet",
+            "version": "3.1.5",
+            "dist": {
+                "type": "zip",
+                "url": "http://downloads.wordpress.org/plugin/akismet.3.1.5.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "kucrut/wordpress": ">=3.8"
+            },
+            "type": "wordpress-plugin",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Automattic",
+                    "homepage": "http://automattic.com/"
+                }
+            ]
+        },
+        {
+            "name": "kucrut/jetpack",
+            "version": "3.7.2",
+            "dist": {
+                "type": "zip",
+                "url": "http://downloads.wordpress.org/plugin/jetpack.3.7.2.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "kucrut/wordpress": ">=3.8"
+            },
+            "type": "wordpress-plugin",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Automattic",
+                    "homepage": "http://automattic.com/"
+                }
+            ]
+        },
+        {
+            "name": "kucrut/regenerate-thumbnails",
+            "version": "2.2.4",
+            "dist": {
+                "type": "zip",
+                "url": "http://downloads.wordpress.org/plugin/regenerate-thumbnails.2.2.4.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "kucrut/wordpress": ">=3.8"
+            },
+            "type": "wordpress-plugin",
+            "license": [
+                "GPL-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Viper007Bond",
+                    "homepage": "http://www.viper007bond.com/"
+                }
+            ]
+        },
+        {
+            "name": "kucrut/tinycoffee",
+            "version": "0.2.1",
+            "dist": {
+                "type": "zip",
+                "url": "http://downloads.wordpress.org/plugin/tinycoffee.0.2.1.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "kucrut/wordpress": ">=3.8"
+            },
+            "type": "wordpress-plugin",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Arūnas Liuiza"
+                },
+                {
+                    "name": "Dzikri Aziz",
+                    "homepage": "http://kucrut.org/"
+                }
+            ]
+        },
+        {
             "name": "kucrut/wordpress",
-            "version": "4.1",
+            "version": "4.3.1",
             "dist": {
                 "type": "tar",
-                "url": "http://wordpress.org/wordpress-4.1.tar.gz",
+                "url": "http://wordpress.org/wordpress-4.3.1.tar.gz",
                 "reference": null,
                 "shasum": null
             },
@@ -232,6 +354,29 @@
                 "environment"
             ],
             "time": "2014-12-05 15:19:21"
+        },
+        {
+            "name": "yoast/wordpress-seo",
+            "version": "2.3.5",
+            "dist": {
+                "type": "zip",
+                "url": "http://downloads.wordpress.org/plugin/wordpress-seo.2.3.5.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "kucrut/wordpress": ">=3.8"
+            },
+            "type": "wordpress-plugin",
+            "license": [
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Joost de Valk",
+                    "homepage": "http://yoast.com/"
+                }
+            ]
         }
     ],
     "packages-dev": [
@@ -313,6 +458,7 @@
     "minimum-stability": "stable",
     "stability-flags": [],
     "prefer-stable": false,
+    "prefer-lowest": false,
     "platform": {
         "php": ">=5.3.0"
     },
