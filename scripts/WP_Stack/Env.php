@@ -100,6 +100,7 @@ class Env extends \kucrut\env\Creator {
     For example: w3-total-cache/w3-total-cache.php
     Separate plugins with commas.
   ',
+				'default'   => '',
 			),
 		),
 	);
