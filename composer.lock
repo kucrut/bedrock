@@ -4,35 +4,9 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "435e1689eef1aa2d35122f8a8d812775",
-    "content-hash": "8d8a4506eefd126253a5acd1721754ee",
+    "hash": "3784e1c41d076129f3442cdd3a01c235",
+    "content-hash": "0fd2fae9fe92a4eb2f4064cdb9d07783",
     "packages": [
-        {
-            "name": "10up/simple-page-ordering",
-            "version": "2.2.4",
-            "dist": {
-                "type": "zip",
-                "url": "http://downloads.wordpress.org/plugin/simple-page-ordering.2.2.4.zip",
-                "reference": null,
-                "shasum": null
-            },
-            "require": {
-                "kucrut/wordpress": ">=3.8"
-            },
-            "type": "wordpress-plugin",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "Jake Goldman"
-                },
-                {
-                    "name": "10up",
-                    "homepage": "http://10up.com/"
-                }
-            ]
-        },
         {
             "name": "composer/installers",
             "version": "v1.0.19",
@@ -192,29 +166,6 @@
             ]
         },
         {
-            "name": "kucrut/jetpack",
-            "version": "3.7.2",
-            "dist": {
-                "type": "zip",
-                "url": "http://downloads.wordpress.org/plugin/jetpack.3.7.2.zip",
-                "reference": null,
-                "shasum": null
-            },
-            "require": {
-                "kucrut/wordpress": ">=3.8"
-            },
-            "type": "wordpress-plugin",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "Automattic",
-                    "homepage": "http://automattic.com/"
-                }
-            ]
-        },
-        {
             "name": "kucrut/regenerate-thumbnails",
             "version": "2.2.4",
             "dist": {
@@ -234,32 +185,6 @@
                 {
                     "name": "Viper007Bond",
                     "homepage": "http://www.viper007bond.com/"
-                }
-            ]
-        },
-        {
-            "name": "kucrut/tinycoffee",
-            "version": "0.2.1",
-            "dist": {
-                "type": "zip",
-                "url": "http://downloads.wordpress.org/plugin/tinycoffee.0.2.1.zip",
-                "reference": null,
-                "shasum": null
-            },
-            "require": {
-                "kucrut/wordpress": ">=3.8"
-            },
-            "type": "wordpress-plugin",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "Arūnas Liuiza"
-                },
-                {
-                    "name": "Dzikri Aziz",
-                    "homepage": "http://kucrut.org/"
                 }
             ]
         },

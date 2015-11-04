@@ -42,10 +42,7 @@
 		"kucrut/wordpress-importer": "0.6.1",
 		"kucrut/regenerate-thumbnails": "2.2.4",
 		"yoast/wordpress-seo": "2.3.5",
-		"kucrut/akismet": "3.1.5",
-		"kucrut/jetpack": "3.7.2",
-		"10up/simple-page-ordering": "2.2.4",
-		"kucrut/tinycoffee": "0.2.1"
+		"kucrut/akismet": "3.1.5"
 	},
 	"require-dev": {
 		"kucrut/debug-bar": "0.8.2",
