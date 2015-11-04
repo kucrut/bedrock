@@ -113,7 +113,7 @@ abstract class Creator {
 
 						return $string;
 					},
-					1,
+					null,
 					$default_filename
 				);
 			}

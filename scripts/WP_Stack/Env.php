@@ -17,7 +17,7 @@ class Env extends \kucrut\env\Creator {
 			'args'          => array(
 				'question'  => '* Environment',
 				'validator' => array( __CLASS__, 'validate' ),
-				'attempts'  => false,
+				'attempts'  => null,
 				'default'   => 'development',
 			),
 		),
@@ -26,7 +26,7 @@ class Env extends \kucrut\env\Creator {
 			'args'       => array(
 				'question'  => '* Main site domain name',
 				'validator' => array( __CLASS__, 'validate' ),
-				'attempts'  => false,
+				'attempts'  => null,
 			),
 			'default_cb' => array( __CLASS__, 'get_dir_name' ),
 		),
@@ -43,7 +43,7 @@ class Env extends \kucrut\env\Creator {
 			'args'            => array(
 				'question'  => '* Additional domain names (for multisite, separate with spaces)',
 				'validator' => array( __CLASS__, 'validate' ),
-				'attempts'  => false,
+				'attempts'  => null,
 			),
 			'default_cb'      => array( __CLASS__, 'get_env_value' ),
 			'default_cb_args' => 'DOMAIN_CURRENT_SITE',
@@ -54,7 +54,7 @@ class Env extends \kucrut\env\Creator {
 			'args'            => array(
 				'question'  => '* Database Name',
 				'validator' => array( __CLASS__, 'validate' ),
-				'attempts'  => false,
+				'attempts'  => null,
 			),
 			'default_cb'      => array( __CLASS__, 'get_default_db_name' ),
 		),
@@ -63,7 +63,7 @@ class Env extends \kucrut\env\Creator {
 			'args'            => array(
 				'question'  => '* Database Host',
 				'validator' => array( __CLASS__, 'validate' ),
-				'attempts'  => false,
+				'attempts'  => null,
 				'default'   => 'localhost',
 			),
 		),
@@ -72,7 +72,7 @@ class Env extends \kucrut\env\Creator {
 			'args'          => array(
 				'question'  => '* Database User',
 				'validator' => array( __CLASS__, 'validate' ),
-				'attempts'  => false,
+				'attempts'  => null,
 				'default'   => 'wp',
 			),
 		),
@@ -88,7 +88,7 @@ class Env extends \kucrut\env\Creator {
 			'args'          => array(
 				'question'  => '* Database Table Prefix',
 				'validator' => array( __CLASS__, 'validate' ),
-				'attempts'  => false,
+				'attempts'  => null,
 				'default'   => 'wp_',
 			),
 		),
