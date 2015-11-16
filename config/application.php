@@ -47,7 +47,7 @@ if ( file_exists( $env_config ) ) {
  */
 define( 'CONTENT_DIR', '/app' );
 define( 'WP_CONTENT_DIR', $root_dir . CONTENT_DIR );
-define( 'WP_CONTENT_URL', getenv( 'WP_HOME' ) . CONTENT_DIR );
+define( 'WP_CONTENT_URL', "{$_SERVER['REQUEST_SCHEME']}://{$_SERVER['HTTP_HOST']}" . CONTENT_DIR );
 
 /**
  * DB settings
