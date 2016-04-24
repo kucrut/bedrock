@@ -5,8 +5,10 @@ $root_dir = "${base_dir}/root";
 /**
  * Use Dotenv to set required environment variables and load .env file in root
  */
-Dotenv::load( $base_dir );
-Dotenv::required(
+
+$dotenv = new Dotenv\Dotenv( $base_dir );
+$dotenv->load();
+$dotenv->required(
 	array(
 		'DB_NAME',
 		'DB_USER',
