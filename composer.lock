@@ -4,22 +4,25 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3784e1c41d076129f3442cdd3a01c235",
-    "content-hash": "0fd2fae9fe92a4eb2f4064cdb9d07783",
+    "hash": "1e8680bba20ecaf1c0ef828f31878c0e",
+    "content-hash": "6969aea770c71d072f3471f3bacee48f",
     "packages": [
         {
             "name": "composer/installers",
-            "version": "v1.0.19",
+            "version": "v1.0.25",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "89d77bfbee79e16653f7162c86e602cc188471db"
+                "reference": "36e5b5843203d7f1cf6ffb0305a97e014387bd8e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/89d77bfbee79e16653f7162c86e602cc188471db",
-                "reference": "89d77bfbee79e16653f7162c86e602cc188471db",
+                "url": "https://api.github.com/repos/composer/installers/zipball/36e5b5843203d7f1cf6ffb0305a97e014387bd8e",
+                "reference": "36e5b5843203d7f1cf6ffb0305a97e014387bd8e",
                 "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0"
             },
             "replace": {
                 "roundcube/plugin-installer": "*",
@@ -29,16 +32,16 @@
                 "composer/composer": "1.0.*@dev",
                 "phpunit/phpunit": "4.1.*"
             },
-            "type": "composer-installer",
+            "type": "composer-plugin",
             "extra": {
-                "class": "Composer\\Installers\\Installer",
+                "class": "Composer\\Installers\\Plugin",
                 "branch-alias": {
                     "dev-master": "1.0-dev"
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Composer\\Installers\\": "src/"
+                "psr-4": {
+                    "Composer\\Installers\\": "src/Composer/Installers"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -53,16 +56,20 @@
                 }
             ],
             "description": "A multi-framework Composer library installer",
-            "homepage": "http://composer.github.com/installers/",
+            "homepage": "https://composer.github.io/installers/",
             "keywords": [
                 "Craft",
                 "Dolibarr",
                 "Hurad",
+                "ImageCMS",
                 "MODX Evo",
+                "Mautic",
                 "OXID",
+                "SMF",
                 "Thelia",
                 "WolfCMS",
                 "agl",
+                "aimeos",
                 "annotatecms",
                 "bitrix",
                 "cakephp",
@@ -98,7 +105,7 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2014-11-29 01:29:17"
+            "time": "2016-04-13 19:46:30"
         },
         {
             "name": "fancyguy/webroot-installer",
@@ -144,10 +151,10 @@
         },
         {
             "name": "kucrut/akismet",
-            "version": "3.1.5",
+            "version": "3.1.10",
             "dist": {
                 "type": "zip",
-                "url": "http://downloads.wordpress.org/plugin/akismet.3.1.5.zip",
+                "url": "https://downloads.wordpress.org/plugin/akismet.3.1.10.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -161,16 +168,16 @@
             "authors": [
                 {
                     "name": "Automattic",
-                    "homepage": "http://automattic.com/"
+                    "homepage": "https://automattic.com/"
                 }
             ]
         },
         {
             "name": "kucrut/regenerate-thumbnails",
-            "version": "2.2.4",
+            "version": "2.2.6",
             "dist": {
                 "type": "zip",
-                "url": "http://downloads.wordpress.org/plugin/regenerate-thumbnails.2.2.4.zip",
+                "url": "https://downloads.wordpress.org/plugin/regenerate-thumbnails.2.2.6.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -184,16 +191,16 @@
             "authors": [
                 {
                     "name": "Viper007Bond",
-                    "homepage": "http://www.viper007bond.com/"
+                    "homepage": "https://www.viper007bond.com/"
                 }
             ]
         },
         {
             "name": "kucrut/wordpress",
-            "version": "4.3.1",
+            "version": "4.5",
             "dist": {
                 "type": "tar",
-                "url": "http://wordpress.org/wordpress-4.3.1.tar.gz",
+                "url": "https://wordpress.org/wordpress-4.5.tar.gz",
                 "reference": null,
                 "shasum": null
             },
@@ -231,38 +238,38 @@
         },
         {
             "name": "vlucas/phpdotenv",
-            "version": "v1.1.0",
+            "version": "v2.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vlucas/phpdotenv.git",
-                "reference": "732d2adb7d916c9593b9d58c3b0d9ebefead07aa"
+                "reference": "63f37b9395e8041cd4313129c08ece896d06ca8e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/732d2adb7d916c9593b9d58c3b0d9ebefead07aa",
-                "reference": "732d2adb7d916c9593b9d58c3b0d9ebefead07aa",
+                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/63f37b9395e8041cd4313129c08ece896d06ca8e",
+                "reference": "63f37b9395e8041cd4313129c08ece896d06ca8e",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.2"
+                "php": ">=5.3.9"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.0"
+                "phpunit/phpunit": "^4.8 || ^5.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0-dev"
+                    "dev-master": "2.2-dev"
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Dotenv": "src/"
+                "psr-4": {
+                    "Dotenv\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "BSD"
+                "BSD-3-Clause-Attribution"
             ],
             "authors": [
                 {
@@ -272,20 +279,19 @@
                 }
             ],
             "description": "Loads environment variables from `.env` to `getenv()`, `$_ENV` and `$_SERVER` automagically.",
-            "homepage": "http://github.com/vlucas/phpdotenv",
             "keywords": [
                 "dotenv",
                 "env",
                 "environment"
             ],
-            "time": "2014-12-05 15:19:21"
+            "time": "2016-04-15 10:48:49"
         },
         {
             "name": "yoast/wordpress-seo",
-            "version": "2.3.5",
+            "version": "3.2.3",
             "dist": {
                 "type": "zip",
-                "url": "http://downloads.wordpress.org/plugin/wordpress-seo.2.3.5.zip",
+                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.3.2.3.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -299,7 +305,7 @@
             "authors": [
                 {
                     "name": "Joost de Valk",
-                    "homepage": "http://yoast.com/"
+                    "homepage": "https://yoast.com/"
                 }
             ]
         }
@@ -307,10 +313,10 @@
     "packages-dev": [
         {
             "name": "kucrut/debug-bar",
-            "version": "0.8.2",
+            "version": "0.8.4",
             "dist": {
                 "type": "zip",
-                "url": "http://downloads.wordpress.org/plugin/debug-bar.0.8.2.zip",
+                "url": "https://downloads.wordpress.org/plugin/debug-bar.0.8.4.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -324,7 +330,7 @@
             "authors": [
                 {
                     "name": "WordPress.org",
-                    "homepage": "http://w.org/"
+                    "homepage": "https://w.org/"
                 }
             ]
         },
@@ -353,10 +359,10 @@
         },
         {
             "name": "kucrut/theme-check",
-            "version": "20141222.1",
+            "version": "20151211.1",
             "dist": {
                 "type": "zip",
-                "url": "http://downloads.wordpress.org/plugin/theme-check.20141222.1.zip",
+                "url": "https://downloads.wordpress.org/plugin/theme-check.20151211.1.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -370,11 +376,11 @@
             "authors": [
                 {
                     "name": "Simon Prosser",
-                    "homepage": "http://profiles.wordpress.org/pross/"
+                    "homepage": "https://profiles.wordpress.org/pross/"
                 },
                 {
                     "name": "Samuel Wood",
-                    "homepage": "http://profiles.wordpress.org/otto42/"
+                    "homepage": "https://profiles.wordpress.org/otto42/"
                 }
             ]
         }

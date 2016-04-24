@@ -31,23 +31,23 @@
 	"repositories": [
 		{
 			"type": "composer",
-			"url": "http://kucrut.github.io/packages/composer"
+			"url": "https://kucrut.github.io/packages/composer"
 		}
 	],
 	"require": {
 		"php": ">=5.3.0",
-		"composer/installers": "v1.0.19",
-		"vlucas/phpdotenv": "1.1.0",
-		"kucrut/wordpress": "4.3.1",
+		"composer/installers": "v1.0.25",
+		"vlucas/phpdotenv": "2.2.1",
+		"kucrut/wordpress": "4.5",
 		"kucrut/wordpress-importer": "0.6.1",
-		"kucrut/regenerate-thumbnails": "2.2.4",
-		"yoast/wordpress-seo": "2.3.5",
-		"kucrut/akismet": "3.1.5"
+		"kucrut/regenerate-thumbnails": "2.2.6",
+		"yoast/wordpress-seo": "3.2.3",
+		"kucrut/akismet": "3.1.10"
 	},
 	"require-dev": {
-		"kucrut/debug-bar": "0.8.2",
+		"kucrut/debug-bar": "0.8.4",
 		"kucrut/log-deprecated-notices": "0.3",
-		"kucrut/theme-check": "20141222.1"
+		"kucrut/theme-check": "20151211.1"
 	},
 	"extra": {
 		"installer-paths": {
