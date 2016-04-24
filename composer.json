@@ -53,7 +53,7 @@
 		"installer-paths": {
 			"root/app/plugins/{$name}/": ["type:wordpress-plugin"],
 			"root/app/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
-			"root/app/themes/{$name}/": ["type:wordpress-theme"]
+			"root/app/themes-composer/{$name}/": ["type:wordpress-theme"]
 		},
 		"webroot-dir": "root/wp",
 		"webroot-package": "kucrut/wordpress"
