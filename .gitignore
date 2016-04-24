@@ -13,15 +13,15 @@ wp-cli.yml
 !.env.example
 
 # Application
-root/app/cache/*
-!root/app/cache/index.php
-root/app/themes-composer/*
-!root/app/themes-composer/index.php
-root/app/uploads/*
-!root/app/uploads/index.php
-root/app/upgrade/*
-root/app/plugins/*
-!root/app/plugins/index.php
+root/wp-content/cache/*
+!root/wp-content/cache/index.php
+root/wp-content/themes-composer/*
+!root/wp-content/themes-composer/index.php
+root/wp-content/uploads/*
+!root/wp-content/uploads/index.php
+root/wp-content/upgrade/*
+root/wp-content/plugins/*
+!root/wp-content/plugins/index.php
 
 # Vendor (e.g. Composer)
 vendor/*
